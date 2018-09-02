@@ -246,7 +246,7 @@
                 orderForm: {
                     goodsAmount: 0, //总商品金额
                     expressMoment: 50,
-                    accept_name: "大大的彩虹", // 收货人姓名,
+                    accept_name: "Moshi Moshi", // 收货人姓名,
                     //省市联动
                     area: {
                         "province": {
@@ -277,8 +277,6 @@
                     goodsids: "",
                     cargoodsobj: {},
                     // phone: "1008611" // 联系电话
-
-
                 },
                 //商品列表数据
                 message: [],

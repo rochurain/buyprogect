@@ -8,6 +8,14 @@ import shoppingCart from "./components/03.shoppingCart.vue";
 import login from "./components/04.login.vue";
 import FillOrder from "./components/05.fillOrder.vue";
 import PayOrder from "./components/06.payOrder.vue";
+import PaySuccess from "./components/07.paySuccess.vue";
+import VipCenter from "./components/08.vipCenter.vue";
+
+
+//交易订单详情
+import OrderList from "./components/09.orderList.vue";
+import OrderDetail from "./components/10.orderDetail.vue";
+
 
 import moment from "moment"
 //使用vue组件
@@ -83,7 +91,40 @@ let routes = [{
     meta:{
       checkLogin:true
     }
-  }
+  },
+  //跳转到支付成功页面
+  {
+    path: '/paySuccess/:id',
+    component: PaySuccess,
+    meta:{
+      checkLogin:true
+    }
+  },
+  //跳转到会员中心
+  {
+    path: '/vipCenter',
+    component: VipCenter,
+    meta:{
+      checkLogin:true
+    }
+  },
+  //跳转到交易订单列表
+  {
+    path: '/orderList',
+    component: OrderList,
+    meta:{
+      checkLogin:true
+    }
+  },
+   //跳转到交易订单详情
+   {
+    path: '/orderDetail/:id',
+    component: OrderDetail,
+    meta:{
+      checkLogin:true
+    }
+  },
+  
 
 ]
 
@@ -183,8 +224,13 @@ window.onbeforeunload = function () {
 // Vue.filter('capitalize', filterDate(val) {
 //   return moment(val).format("YYYY年MM月DD日");
 // })
-Vue.filter('filterDate', function (value) {
-  return moment(value).format("YYYY年MM月DD日");
+Vue.filter('filterDate', function (value,formStr) {
+  if(formStr!=undefined){
+    return moment(value).format(formStr);
+  }else{
+    return moment(value).format("YYYY年MM月DD日");
+  }
+  
 })
 new Vue({
   store,
